@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receta</title>
+</head>
+<body>
+    
+    <h1>Recetas de Armando</h1>
+    
+    <script>
+    
+        var ingredientes = [];
+        var cantidad = parseInt(prompt("¿Cuántos ingredientes vas a añadir?"));
+        var contador = 1;
+        
+
+
+        while( contador <= cantidad) {
+            var ingredienteRepetido = false;
+            var ingrediente = prompt("Informe el ingrediente " + contador);
+            for (let indice = 0; indice < ingredientes.length; indice++) {
+                if(ingredientes[indice] == ingrediente){
+                    ingredienteRepetido = true;
+                    break;
+                }
+            }
+
+            if(!ingredienteRepetido){
+                ingredientes.push(ingrediente);
+                contador++;
+            }
+            
+        }
+    
+        console.log(ingredientes);
+    
+    </script>
+
+</body>
+</html>
