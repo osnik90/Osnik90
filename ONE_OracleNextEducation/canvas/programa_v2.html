@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuadra</title>
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        function pintarCuadrado50x50(x, y, color) {
+            pincel.fillStyle = color;
+            pincel.strokeStyle = "black";
+            pincel.fillRect(x, y, 50, 50); //x, y, w, h
+            pincel.strokeRect(x, y, 50, 50);
+        }
+
+        var alto = parseInt(document.querySelector("canvas").height);
+        var ancho = parseInt(document.querySelector("canvas").width);
+
+        let contador = 0;
+
+        while (contador < ancho) {
+            pintarCuadrado50x50(contador, 0, "red");
+            pintarCuadrado50x50(contador, 50, "yellow");
+            pintarCuadrado50x50(contador, 100, "green");
+            contador = contador + 50;
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
