@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa 5</title>
+</head>
+
+<body>
+    <canvas width="600" , height="400"></canvas>
+    <script>
+        var pantalla = document.querySelector('canvas');
+        var pincel = pantalla.getContext('2d');
+
+        pincel.fillStyle = "black";
+        pincel.fillRect(0, 0, 600, 400);
+
+        var puedoDibujar = false;
+        var colores = ["red", "green", "blue", "yellow"];
+
+        function dibujarPaletas() {
+            let x = 0;
+            for (let i = 0; i < colores.length; i++) {
+                pincel.fillStyle = colores[i];
+                pincel.fillRect(x, 0, 50, 50);
+                pincel.strokeStyle = "white";
+                pincel.strokeRect(x, 0, 50, 50);
+                x = x + 50;
+            }
+        }
+        function dibujarCirculo(evento) {
+            if (puedoDibujar) {
+                var x = evento.pageX - pantalla.offsetLeft;
+                var y = evento.pageY - pantalla.offsetTop;
+                pincel.fillStyle = "white";
+                pincel.beginPath();
+                pincel.arc(x, y, 5, 0, 2 * 3.14);
+                pincel.fill();
+            }
+        }
+        function habilitarDibujar() {
+
+            puedoDibujar = true;
+        }
+        function deshabilitarDibujar() {
+
+            puedoDibujar = false;
+        }
+        function obtenerColorClick(event) {
+            let x = event.pageX - pantalla.offsetLeft;
+            let y = event.pageY - pantalla.offsetTop;
+            
+        }
+
+        dibujarPaletas();
+        pantalla.onclick = obtenerColorClick;
+        pantalla.onmousedown = habilitarDibujar;
+        pantalla.onmouseup = deshabilitarDibujar;
+        pantalla.onmousemove = dibujarCirculo;
+
+    </script>
+</body>
+
+</html>
