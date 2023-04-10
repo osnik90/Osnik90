@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa 5</title>
+</head>
+
+<body>
+    <canvas width="600" , height="400"></canvas>
+    <script>
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+        pincel.fillStyle = "grey";
+        pincel.fillRect(0, 0, 600, 400);
+        var radio = 10;
+        var x_random = 0;
+        var y_random = 0;
+        function diseniarCircunferencia(x, y, radio, color) {
+            pincel.fillStyle = color;
+            pincel.beginPath()
+            pincel.arc(x, y, radio, 0, 2 * Math.PI);
+            pincel.fill();
+        }
+
+        function limpiarPantalla() {
+            pincel.clearRect(0, 0, 600, 400);
+        }
+
+        function diseniarObjetivo(x, y) {
+            diseniarCircunferencia(x, y, radio + 20, "red");
+            diseniarCircunferencia(x, y, radio + 10, "white");
+            diseniarCircunferencia(x, y, radio, "red");
+        }
+
+        function aleatorio(maximo) {
+            return Math.floor(Math.random() * maximo);
+        }
+        function actualizarPantalla() {
+            limpiarPantalla();
+            x_random = aleatorio(600);
+            y_random = aleatorio(400);
+            diseniarObjetivo(x_random, y_random);
+            console.log("COORDENADAS RANDOM:" + x_random + "," + y_random);
+        }
+
+        function lugarClick(event) {
+            let clickx = event.pageX - pantalla.offsetLeft;
+            let clicky = event.pageY - pantalla.offsetTop;
+            console.log("COORDENADAS USUARIO:" + clickx + "," + clicky);
+
+            if ((clickx < (x_random + radio)) &&
+                (clickx > (x_random - radio)) &&
+                (clicky < (y_random + radio)) &&
+                (clicky > (y_random - radio))){
+                    alert("Acertó");
+                }
+        }
+
+        setInterval(actualizarPantalla, 1000);
+        pantalla.onclick = lugarClick;
+
+
+
+        actualizarPantalla();
+
+    </script>
+</body>
+
+</html>
