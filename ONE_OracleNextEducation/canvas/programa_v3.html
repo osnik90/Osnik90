@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel con Circulos</title>
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        var colorCirculoNext = "";
+        var counter = 0;
+
+        pincel.fillStyle = "grey";
+        pincel.fillRect(0, 0, 600, 400);
+
+        function exhibirClick(event) {
+            var x = event.pageX - pantalla.offsetLeft;
+            var y = event.pageY; - pantalla.offsetTop;
+            //  alert("Usted dió click en alguna parte del lugar gris");
+            console.log("x; " + x + " y: " + y);
+        }
+
+        function dibujarCirculo(event) {
+            var x = event.pageX - pantalla.offsetLeft;
+            var y = event.pageY; - pantalla.offsetTop;
+            pincel.fillStyle = colorCirculoNext;
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2 * 3.1416);
+            pincel.fill();
+            //console.log(x + "," + y)
+        }
+
+        function alterarColor() {
+            let colores = ["blue", "red", "green"];
+            counter++;
+
+            if (counter < colores.length)
+                colorCirculoNext = colores[counter];
+            else {
+                counter = 0;
+                colorCirculoNext = colores[counter];
+            }
+            console.log(colorCirculoNext);
+            return false;
+        }
+
+
+        pantalla.oncontextmenu = alterarColor;
+        pantalla.onclick = dibujarCirculo;
+    </script>
+</body>
+
+</html>
