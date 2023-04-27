@@ -1,11 +1,51 @@
-body{
-    background: #CCCCCC;
+body {
+    /*    background: #CCCCCC;*/
 }
 
-p{
+#banner {
+    width: 100%;
+}
+
+.tituloPrincipal{
+    padding-left: 30px;
+}
+
+.principal {
+    background-color: #CCCCCC;
+}
+
+.titulos{
     text-align: center;
 }
 
-em strong{
-    color:red;
+p {
+    text-align: center;
+}
+
+em strong {
+    color: red;
+}
+
+#mision {
+    font-size: 30px;
+}
+
+.ventajas {
+    background-color: white;
+}
+
+.items {
+    font-style: italic;
+}
+
+#listaVentaja {
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    margin-right: 15% ;
+
+}
+
+#imgBarbero {
+    width: 50%;
 }
