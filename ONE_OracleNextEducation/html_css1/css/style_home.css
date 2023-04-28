@@ -1,0 +1,88 @@
+body {
+    /*    background: #CCCCCC;*/
+}
+
+header {
+    background-color: #BBBBBB;
+    padding: 20px 0;
+}
+
+#banner {
+    padding: 20px 0 0 0 ;
+    width: 100%;
+}
+
+.caja{
+    width: 940px;
+    position: relative;
+    margin: 0 auto;
+}
+
+nav{
+    position: absolute;
+    top:110px;
+    right: 0;
+}
+
+nav li{
+    display: inline;
+    margin: 0 0 0 15px;
+}
+
+nav a{
+    text-transform: uppercase;
+    color: #000000;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: #c78c19;
+    text-decoration: underline;
+}
+
+
+.tituloPrincipal{
+    padding-left: 30px;
+}
+
+.principal {
+    background-color: #CCCCCC;
+}
+
+.titulos{
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+em strong {
+    color: red;
+}
+
+#mision {
+    font-size: 30px;
+}
+
+.ventajas {
+    background-color: white;
+}
+
+.items {
+    font-style: italic;
+}
+
+#listaVentaja {
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    margin-right: 15% ;
+
+}
+
+#imgBarbero {
+    width: 50%;
+}
